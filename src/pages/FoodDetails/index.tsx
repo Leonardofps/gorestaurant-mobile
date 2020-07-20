@@ -125,10 +125,10 @@ const FoodDetails: React.FC = () => {
 
   const toggleFavorite = useCallback(async () => {
     if (isFavorite) {
-      api.post('favorites', food);
+      await api.post('favorites', food);
       setIsFavorite(false);
     } else {
-      api.delete(`favorites/${food.id}`);
+      await api.delete(`favorites/${food.id}`);
       setIsFavorite(true);
     }
   }, [isFavorite, food]);
