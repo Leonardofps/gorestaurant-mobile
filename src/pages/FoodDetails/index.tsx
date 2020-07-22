@@ -79,7 +79,7 @@ const FoodDetails: React.FC = () => {
 
       const foodData = response.data;
 
-      setFood(foodData);
+      setFood({ ...foodData, formattedPrice: formatValue(foodData.price) });
 
       setExtras(
         foodData.extras.map((extra: Extra) => ({ ...extra, quantity: 0 })),
@@ -149,6 +149,8 @@ const FoodDetails: React.FC = () => {
       ...food,
       productId,
     });
+
+    navigation.navigate('Dashboard');
   }
 
   // Calculate the correct icon name
